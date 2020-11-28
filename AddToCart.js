@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-
+import RectangleIndicator from './components/RectangleIndicate';
+import RoundIndicator from './components/RoundIndicate';
 export default function AddToCart() {
     return (
         <View style={styles.container}>
@@ -25,6 +26,11 @@ export default function AddToCart() {
 
           <View style={styles.bottomText}>
             <Text style={styles.one}>Previous</Text>
+            <View style={styles.indicators}>
+              <RoundIndicator/>
+              <RectangleIndicator/>
+              <RoundIndicator/>
+            </View>
             <Text style={styles.two}>Skip</Text>
           </View>
    
@@ -86,12 +92,17 @@ const styles = StyleSheet.create({
         
     },
     one:{
-        marginHorizontal:5,
         color:"#bbbdc9"
     },
     two:{
-        marginLeft:200,
+        marginLeft:110,
         color:"#bbbdc9"
+    },
+    indicators:{
+        flexDirection:"row",
+        alignItems:"center",
+        marginLeft:70
+
     }
 })
 

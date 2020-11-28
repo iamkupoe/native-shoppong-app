@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import RectangleIndicator from './components/RectangleIndicate';
+import RoundIndicator from './components/RoundIndicate';
+
 
 export default function OnlineShopping() {
     return (
@@ -24,6 +27,13 @@ export default function OnlineShopping() {
           </View>
 
           <View style={styles.bottomText}>
+              <View style={styles.indicators}>
+               <RectangleIndicator/>
+               <RoundIndicator/>
+               <RoundIndicator/>
+              </View>
+            
+
             <Text style={styles.two}>Skip</Text>
           </View>
    
@@ -34,6 +44,7 @@ export default function OnlineShopping() {
 
 const styles = StyleSheet.create({
     container:{
+        justifyContent:"space-between",
         marginVertical:30,
         marginHorizontal:30
     },
@@ -48,7 +59,7 @@ const styles = StyleSheet.create({
 
     },
     contentContainer:{
-       marginHorizontal:10,
+      justifyContent:"space-between",
     },
     content:{
         fontSize:15,
@@ -85,8 +96,13 @@ const styles = StyleSheet.create({
         
     },
     two:{
-        marginLeft:270,
+        marginLeft:110,
         color:"#bbbdc9"
+    },
+    indicators:{
+        flexDirection: "row",
+        alignItems: "center",
+        marginLeft:120
     }
 })
 

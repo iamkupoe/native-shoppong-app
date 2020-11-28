@@ -8,9 +8,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/*<AddToCart/>*/}
-      <OnlineShopping/>
-     {/* <PaymentSuccessful/>*/}
-    </View>
+  {/*<OnlineShopping/>*/}
+     <PaymentSuccessful/>
+     </View>
   );
 }
 

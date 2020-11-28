@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
+import RectangleIndicator from './components/RectangleIndicate';
+import RoundIndicator from './components/RoundIndicate';
 
 export default function PaymentSuccessful() {
     return (
@@ -25,6 +27,14 @@ export default function PaymentSuccessful() {
 
           <View style={styles.bottomText}>
             <Text style={styles.one}>Previous</Text>
+
+            <View style={styles.indicator}>
+             <RoundIndicator/>
+             <RoundIndicator/>
+             <RectangleIndicator/>
+            </View>
+            
+            
           </View>
    
  
@@ -88,5 +98,12 @@ const styles = StyleSheet.create({
         marginHorizontal:5,
         color:"#bbbdc9"
     },
+    indicator:{
+        flexDirection: "row",
+        alignItems: "center",
+        marginLeft:60
+    
+
+    }
 })
 
