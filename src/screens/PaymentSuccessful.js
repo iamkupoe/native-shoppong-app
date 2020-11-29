@@ -1,15 +1,14 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import RectangleIndicator from './components/RectangleIndicate';
-import RoundIndicator from './components/RoundIndicate';
+import RectangleIndicator from '../../components/RectangleIndicate';
+import RoundIndicator from '../../components/RoundIndicate';
 
-
-export default function OnlineShopping() {
+export default function PaymentSuccessful({navigation}) {
     return (
         <View style={styles.container}>
 
             <View style={styles.headContainer}>
-               <Text style={styles.heading}>ONLINE SHOPPING</Text>
+               <Text style={styles.heading}>PAYMENT SUCCESSFUL</Text>
             </View>
 
             <View style={styles.contentContainer}>
@@ -17,24 +16,35 @@ export default function OnlineShopping() {
          </View>
 
            <View style={styles.imageContainer}>
-           <Image source={require('./assets/online.png')} style={styles.image}/>
+           <Image source={require('../../assets/payment.png')} style={styles.image}/>
            </View>
 
            <View>
               <TouchableOpacity style={styles.opacity}>
-                <Text style={styles.opacityText}>Next</Text>
+                <Text style={styles.opacityText}>Get Started</Text>
               </TouchableOpacity>
           </View>
 
           <View style={styles.bottomText}>
-              <View style={styles.indicators}>
-               <RectangleIndicator/>
-               <RoundIndicator/>
-               <RoundIndicator/>
-              </View>
+
+          <View>
+
+          <TouchableOpacity onPress={()=>{
+              navigation.navigate("AddToCart")
+          }}>
+          <Text style={styles.one}>Previous</Text>
+          </TouchableOpacity>
+       
+       </View>
             
 
-            <Text style={styles.two}>Skip</Text>
+            <View style={styles.indicator}>
+             <RoundIndicator/>
+             <RoundIndicator/>
+             <RectangleIndicator/>
+            </View>
+            
+            
           </View>
    
  
@@ -44,12 +54,11 @@ export default function OnlineShopping() {
 
 const styles = StyleSheet.create({
     container:{
-        justifyContent:"space-between",
-        marginVertical:30,
+        //marginVertical:30,
         marginHorizontal:30
     },
     headContainer:{
-        marginVertical:10,
+        //marginVertical:10,
         marginHorizontal:10
     },
 
@@ -59,7 +68,7 @@ const styles = StyleSheet.create({
 
     },
     contentContainer:{
-      justifyContent:"space-between",
+       marginHorizontal:10,
     },
     content:{
         fontSize:15,
@@ -76,7 +85,7 @@ const styles = StyleSheet.create({
         height:200
     },
     opacity:{
-      marginVertical:10,
+      //marginVertical:10,
       alignSelf:"center",
       alignItems:"center",
       paddingVertical:10,
@@ -95,14 +104,16 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         
     },
-    two:{
-        marginLeft:110,
-        color:"#bbbdc9"
+    one:{
+        marginHorizontal:5,
+        color:"gray"
     },
-    indicators:{
+    indicator:{
         flexDirection: "row",
         alignItems: "center",
-        marginLeft:120
+        marginLeft:60
+    
+
     }
 })
 

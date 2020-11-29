@@ -1,13 +1,15 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import RectangleIndicator from './components/RectangleIndicate';
-import RoundIndicator from './components/RoundIndicate';
-export default function AddToCart() {
+import RectangleIndicator from '../../components/RectangleIndicate';
+import RoundIndicator from '../../components/RoundIndicate';
+
+
+export default function OnlineShopping({navigation}) {
     return (
         <View style={styles.container}>
 
             <View style={styles.headContainer}>
-               <Text style={styles.heading}>ADD TO CART</Text>
+               <Text style={styles.heading}>ONLINE SHOPPING</Text>
             </View>
 
             <View style={styles.contentContainer}>
@@ -15,23 +17,34 @@ export default function AddToCart() {
          </View>
 
            <View style={styles.imageContainer}>
-           <Image source={require('./assets/add.png')} style={styles.image}/>
+           <Image source={require('../../assets/online.png')} style={styles.image}/>
            </View>
 
            <View>
-              <TouchableOpacity style={styles.opacity}>
+              <TouchableOpacity onPress={()=>{
+                  navigation.navigate("AddToCart")
+              }} style={styles.opacity}>
                 <Text style={styles.opacityText}>Next</Text>
               </TouchableOpacity>
           </View>
 
           <View style={styles.bottomText}>
-            <Text style={styles.one}>Previous</Text>
-            <View style={styles.indicators}>
-              <RoundIndicator/>
-              <RectangleIndicator/>
-              <RoundIndicator/>
+              <View style={styles.indicators}>
+               <RectangleIndicator/>
+               <RoundIndicator/>
+               <RoundIndicator/>
+              </View>
+            
+            <View>
+
+               <TouchableOpacity onPress={()=>{
+                   navigation.navigate("AddToCart")
+               }}>
+               <Text style={styles.two}>Skip</Text>
+               </TouchableOpacity>
+            
             </View>
-            <Text style={styles.two}>Skip</Text>
+            
           </View>
    
  
@@ -41,11 +54,12 @@ export default function AddToCart() {
 
 const styles = StyleSheet.create({
     container:{
-        marginVertical:30,
+        justifyContent:"space-between",
+        //marginVertical:30,
         marginHorizontal:30
     },
     headContainer:{
-        marginVertical:10,
+        //marginVertical:10,
         marginHorizontal:10
     },
 
@@ -55,7 +69,7 @@ const styles = StyleSheet.create({
 
     },
     contentContainer:{
-       marginHorizontal:10,
+      justifyContent:"space-between",
     },
     content:{
         fontSize:15,
@@ -64,11 +78,11 @@ const styles = StyleSheet.create({
     },
     imageContainer:{
        alignItems:"center",
-       marginVertical:20,
-       marginHorizontal:10
+       //marginVertical:20,
+       marginHorizontal:5
     },
     image:{
-        width:350,
+        width:300,
         height:200
     },
     opacity:{
@@ -91,18 +105,14 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         
     },
-    one:{
-        color:"#bbbdc9"
-    },
     two:{
         marginLeft:110,
-        color:"#bbbdc9"
+        color:"gray"
     },
     indicators:{
-        flexDirection:"row",
-        alignItems:"center",
-        marginLeft:70
-
+        flexDirection: "row",
+        alignItems: "center",
+        marginLeft:120
     }
 })
 

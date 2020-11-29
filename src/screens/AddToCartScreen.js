@@ -1,14 +1,13 @@
 import React from 'react';
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import RectangleIndicator from './components/RectangleIndicate';
-import RoundIndicator from './components/RoundIndicate';
-
-export default function PaymentSuccessful() {
+import RectangleIndicator from '../../components/RectangleIndicate';
+import RoundIndicator from '../../components/RoundIndicate';
+export default function AddToCart({navigation}) {
     return (
         <View style={styles.container}>
 
             <View style={styles.headContainer}>
-               <Text style={styles.heading}>PAYMENT SUCCESSFUL</Text>
+               <Text style={styles.heading}>ADD TO CART</Text>
             </View>
 
             <View style={styles.contentContainer}>
@@ -16,24 +15,45 @@ export default function PaymentSuccessful() {
          </View>
 
            <View style={styles.imageContainer}>
-           <Image source={require('./assets/payment.png')} style={styles.image}/>
+           <Image source={require('../../assets/add.png')} style={styles.image}/>
            </View>
 
            <View>
-              <TouchableOpacity style={styles.opacity}>
-                <Text style={styles.opacityText}>Get Started</Text>
+              <TouchableOpacity onPress={()=>{
+                  navigation.navigate("PaymentSuccessful")
+              }} style={styles.opacity}>
+                <Text style={styles.opacityText}>Next</Text>
               </TouchableOpacity>
           </View>
 
           <View style={styles.bottomText}>
-            <Text style={styles.one}>Previous</Text>
-
-            <View style={styles.indicator}>
-             <RoundIndicator/>
-             <RoundIndicator/>
-             <RectangleIndicator/>
-            </View>
             
+          <View>
+
+            <TouchableOpacity onPress={()=>{
+                navigation.navigate("OnlineShopping")
+            }}>
+            <Text style={styles.one}>Previous</Text>
+            </TouchableOpacity>
+         
+         </View>
+           
+           
+            <View style={styles.indicators}>
+              <RoundIndicator/>
+              <RectangleIndicator/>
+              <RoundIndicator/>
+            </View>
+
+            <View>
+
+            <TouchableOpacity onPress={()=>{
+                navigation.navigate("PaymentSuccessful")
+            }}>
+            <Text style={styles.two}>Skip</Text>
+            </TouchableOpacity>
+         
+         </View>
             
           </View>
    
@@ -44,11 +64,11 @@ export default function PaymentSuccessful() {
 
 const styles = StyleSheet.create({
     container:{
-        marginVertical:30,
+        //marginVertical:30,
         marginHorizontal:30
     },
     headContainer:{
-        marginVertical:10,
+        //marginVertical:10,
         marginHorizontal:10
     },
 
@@ -67,11 +87,11 @@ const styles = StyleSheet.create({
     },
     imageContainer:{
        alignItems:"center",
-       marginVertical:20,
-       marginHorizontal:5
+       //marginVertical:20,
+       marginHorizontal:10
     },
     image:{
-        width:300,
+        width:350,
         height:200
     },
     opacity:{
@@ -95,14 +115,16 @@ const styles = StyleSheet.create({
         
     },
     one:{
-        marginHorizontal:5,
-        color:"#bbbdc9"
+        color:"gray"
     },
-    indicator:{
-        flexDirection: "row",
-        alignItems: "center",
-        marginLeft:60
-    
+    two:{
+        marginLeft:110,
+        color:"gray"
+    },
+    indicators:{
+        flexDirection:"row",
+        alignItems:"center",
+        marginLeft:70
 
     }
 })
